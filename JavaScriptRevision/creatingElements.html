@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body style="background-color: black; color:white">
+    <a href=""></a>
+    <h1>Welcome to my website
+        <div class="block">
+            <h4 id="name-Block">Hey There, My name is
+                <span id="username">Sushant kumar</span>
+            </h4>
+            <p class="block remove">Here is code for you</p>
+            <pre><code>console.log("Hey There")</code></pre>
+        </div>
+        <div id="my-container"></div>
+        <button id="click-button">ClickMe</button>
+        <script>
+            const button = document.getElementById('click-button');
+            const container = document.getElementById('my-container');
+            
+            let count = 1;
+            button.addEventListener('click',()=>{
+                // const element = document.createElement("h1");
+                // element.innerText = "Sushant";
+                // // container.innerHTML = '<h1>Sushant</h1>';  // works only one time
+                // container.appendChild(element);   // creates as many times as we click it
+
+                // creating a tag  element
+                // const element2 = document.createElement("a");
+                // element2.innerText = "click me to visit google";
+                // element2.href = 'https://www.google.com/search'
+                // element2.style.textDecoration = 'none'
+                // element2.style.color = 'white'
+                // container.appendChild(element2);
+                
+                const element3 = document.createElement('li');
+                element3.innerText = count;
+                container.appendChild(element3);
+                count++;
+            });
+        </script>
+
+</body>
+
+</html>

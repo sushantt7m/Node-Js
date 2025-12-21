@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body style="background-color: black; color:white">
+    <h1>Welcome to my website
+        <div class="block">
+            <h4 id="name-Block">Hey There, My name is
+                <span id="username">Sushant kumar</span>
+            </h4>
+            <p class="block remove">Here is code for you</p>
+            <pre><code>console.log("Hey There")</code></pre>
+            <button id="clickButton">ClickMe</button>
+        </div>
+        <script>
+            const element = document.getElementById('clickButton');
+            const nameBlock = document.getElementById('name-Block')
+
+            // first Way
+            // element.onclick = function(){
+            //     console.log("hey i am clicked");
+            // };
+
+            // Second way
+            element.addEventListener("click", () => {
+                console.log("Hiiii")
+                if (nameBlock.style.color === 'red') {
+                    nameBlock.style.color = 'blue'
+                }
+                else {
+                    nameBlock.style.color = 'red'
+                }
+            })
+
+            // removing elements from the DOM on click
+            const allChildren = document.querySelector("body").children;
+            for (let i = 0; i < allChildren.length; i++) {
+                allChildren.item(i).addEventListener('click',()=>{
+                    // allChildren.item(i).style.color='aqua';
+                    allChildren.item(i).remove();
+                });
+            }
+        </script>
+
+</body>
+
+</html>
