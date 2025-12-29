@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+
+<body>
+    <h1 id="my-name" style="font-size: 50px">Sushant Kumar</h1>
+    <button id="My-Button">Click Me</button>
+
+
+
+    <script>
+        const myName = document.getElementById('my-name');
+        function makeTextSizer(size) {
+            function changeSize() {
+                myName.style.fontSize = `${size}px`;
+            }
+            return changeSize;
+        }
+
+        const size12 = makeTextSizer(12)
+        const size20 = makeTextSizer(20)
+        const size52 = makeTextSizer(52)
+        const size70 = makeTextSizer(70)
+
+
+        const btn = document.getElementById('My-Button');
+        btn.addEventListener("click", size70);
+    </script>
+</body>
+
+</html>
