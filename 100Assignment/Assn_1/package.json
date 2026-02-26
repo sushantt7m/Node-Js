@@ -1,0 +1,12 @@
+{
+  "name": "assn_1",
+  "version": "1.0.0",
+  "description": "in this assignment we are going to create a server and from that we are going to log everything using fs command",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  }
+}
