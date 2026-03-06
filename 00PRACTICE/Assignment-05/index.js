@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
     fs.readFile('./users.json', 'utf-8', (err, data) => {
-        if (err) return res.status(501).send("Error Reading Database");
+        if (err) return res.status(501).send({"Error":"Error Reading Database"});
 
         const users = JSON.parse(data);
         res.json(users);
@@ -28,7 +28,7 @@ app.get('/users', (req, res) => {
 
 app.post('/users', (req, res) => {
     fs.readFile('./users.json', 'utf-8', (err, data) => {
-        if (err) return res.status(502).send("Error reading the File", err);
+        if (err) return res.status(502).send({"Error":"Error reading the File"});
 
         const users = JSON.parse(data)
         const index = users.length
@@ -41,8 +41,8 @@ app.post('/users', (req, res) => {
 
         // now feed this updated Users to the database
         fs.writeFile('./users.json', JSON.stringify(users), (err) => {
-            if (err) return res.status(501).send("Error Writing in file", err);
-            res.send("User Added Successfully")
+            if (err) return res.status(501).send({"ERROR":"cannot read database"});
+            res.send({message:"User Added Successfully",data:newUsers})
         })
     })
 })
@@ -55,14 +55,14 @@ app.patch('/users/:id', (req, res) => {
 
     fs.readFile('./users.json', 'utf-8', (err, data) => {
 
-        if (err) return res.status(500).send("Error reading database");
+        if (err) return res.status(500).json({error:"Error reading database"});
 
         const users = JSON.parse(data);
 
-        const userIndex = users.findIndex(user => user.id === id);
-        const user = users.find((u)=>u.id === id);
-        if (userIndex === -1) {
-            return res.status(404).send("User not found");
+        const user = users.find(u => u.id === id);
+
+        if(!user){
+            return res.status(404).json({error:"User not found"})
         }
 
         for(let key in req.body){
@@ -71,15 +71,18 @@ app.patch('/users/:id', (req, res) => {
 
         fs.writeFile('./users.json', JSON.stringify(users, null, 2), (err) => {
 
-            if (err) return res.status(500).send("Error writing file");
+            if (err) return res.status(500).json({error:"Cannot write to file"});
 
-            res.send(users[userIndex]);
+            res.json({
+                message:"Data patched successfully",
+                data:user
+            });
+
         });
 
     });
 
 });
-
 
 app.get('/admin',checkAuth,(req,res)=>{
     res.send("Welcome to Admin Panel");

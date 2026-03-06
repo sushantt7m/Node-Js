@@ -1,27 +1,32 @@
 [
-  {
-    "id": 1,
-    "first_name": "Sushant",
-    "last_name": "kumar"
-  },
-  {
-    "id": 2,
-    "first_name": "Srishti",
-    "last_name": "Sinha"
-  },
-  {
-    "id": 3,
-    "first_name": "Nishant",
-    "last_name": "Kumar"
-  },
-  {
-    "id": 4,
-    "first_name": "Srishti",
-    "last_name": "Sinha"
-  },
-  {
-    "id": 5,
-    "first_name": "Surya",
-    "last_name": "Singh"
-  }
+    {
+        "id": 1,
+        "first_name": "Sushant",
+        "last_name": "kumar"
+    },
+    {
+        "id": 2,
+        "first_name": "Srishti",
+        "last_name": "Sinha"
+    },
+    {
+        "id": 3,
+        "first_name": "Nishant",
+        "last_name": "Kumar"
+    },
+    {
+        "id": 4,
+        "first_name": "Srishti",
+        "last_name": "Sinha"
+    },
+    {
+        "id": 5,
+        "first_name": "Surya",
+        "last_name": "Singh"
+    },
+    {
+        "id": 6,
+        "first_name": "Shiv",
+        "last_name": "Shakti"
+    }
 ]
