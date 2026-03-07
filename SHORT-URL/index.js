@@ -14,22 +14,7 @@ connectToMongoDb("mongodb://127.0.0.1:27017/url-db")
 
 // ROUTES
 app.use('/url', urlRouter)
-app.get('/:shortId', async (req, res) => {
-    const shortId = req.params.shortId;
-    const entry = await URL.findOneAndUpdate(
-        {
-            shortId,
-        },
-        {
-            $push: { 
-                visitHistory: {
-                    timestamp:Date.now()
-                }, 
-            },
-        },
-    );
-    res.redirect(entry.redirectURL)
-})
+
 
 
 app.listen(port, () => console.log(`Server Started at PORT ${port}`))
