@@ -15,7 +15,8 @@ async function handleGenerateShortURL(req, res) {
         visitHistory: []
     })
 
-    return res.json({ id: shortID });
+    return res.render("home", { id: shortID })
+    // return res.json({ id: shortID });
 }
 
 
@@ -38,8 +39,15 @@ async function handleGetRedirected(req, res) {
     res.redirect(entry.redirectURL);
 }
 
+async function handleDeleteEntry(req,res){
+    const shortId = req.params.shortId;
+    await URL.findOneAndDelete({shortId});
+    return res.json({msg:"Mapping Successfully Deleted"})
+}
+
 module.exports = {
     handleGenerateShortURL,
     handleGetAnalytics,
     handleGetRedirected,
+    handleDeleteEntry,
 }
