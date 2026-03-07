@@ -1,9 +1,9 @@
-const express = require('express');
-
+const express = requrie('exepress');
 
 const app = express();
-const PORT = 8001;
+const port = 8001;
 
 
 
-app.listen(PORT, () => console.log(`Server Started at port ${PORT}`));
+
+app.listen(port, () => console.log(`Server Started at PORT ${port}`))
