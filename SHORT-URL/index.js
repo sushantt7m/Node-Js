@@ -1,8 +1,9 @@
+const connectToMongoDb = require('./connection');
 const express = require('express');
 const path = require('path')
-const urlRouter = require('./routes/url');
-const connectToMongoDb = require('./connection');
-const URL = require('./models/url')
+
+const urlRoute = require('./routes/url');
+const userRoute = require('./routes/user')
 const staticRoute = require('./routes/staticRouter');
 
 const app = express();
@@ -14,14 +15,16 @@ app.use(express.urlencoded({ extended: false }))
 app.set("view engine", "ejs");
 app.set('views', path.resolve('./views'))
 
+// ROUTES
+app.use('/url', urlRoute)
+app.use('/user', userRoute)
+app.use('/', staticRoute)
+
+
 // CONNECTION
 connectToMongoDb("mongodb://127.0.0.1:27017/url-db")
     .then(() => console.log("Connected to MongoDb"))
     .catch((err) => console.log(err));
-
-// ROUTES
-app.use('/url', urlRouter)
-app.use('/', staticRoute)
 
 
 // EJS
