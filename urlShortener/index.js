@@ -14,7 +14,7 @@ const port = 8001;
 
 // MIDDLEWARES
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser());
 
 app.set('view engine', 'ejs')
