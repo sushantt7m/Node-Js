@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:17.8
+    ports:
+      - 5432:5432
+    environment:
+     POSTGRES_DB: booksAuthors
+     POSTGRES_USER: sushantt
+     POSTGRES_PASSWORD: 12345
