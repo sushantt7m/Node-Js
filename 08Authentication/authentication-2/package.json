@@ -1,0 +1,33 @@
+{
+  "name": "authentication-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "tsx watch index.js",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:docker": "docker compose up -d",
+    "db:docker-d": "docker compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "@types/express": "~4.17.25",
+    "@types/node": "^25.5.2",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.21.0"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.1",
+    "drizzle-orm": "^0.45.2",
+    "express": "~4.22.1",
+    "pg": "^8.20.0"
+  }
+}
