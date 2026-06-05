@@ -78,6 +78,13 @@ export const handleUserLogin = async (req, res) => {
     });
   }
 
+  if (isCorrect) {
+    return res.status(200).json({
+      msg: "The credentials were correct",
+      Query_Login: "You are logged in successfully",
+    });
+  }
+
   // generate a session for user, if isCorrect is true
 
   const [session] = await db

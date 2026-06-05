@@ -40,10 +40,23 @@ export const restrictToRole = (role) => {
   return function (req, res, next) {
     if (req.user.role !== role) {
       return res.status(401).json({
-        err: "You are not authorised to access this resourse",
+        err: "You are not authorised to access this resource",
       });
     }
 
     return next();
   };
 };
+
+
+
+if(!user)
+  console.log("Sushant")
+
+
+
+
+
+
+
+
